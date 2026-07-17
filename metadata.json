@@ -1,0 +1,6 @@
+{
+  "name": "마음쉼",
+  "description": "청소년을 위한 인공지능 기반 정서 분석 및 맞춤형 편지 전달 서비스",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

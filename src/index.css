@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-batang: "Gowun Batang", serif;
+  
+  --color-artistic-bg: #FDFBF7;
+  --color-artistic-text: #3A3530;
+  --color-artistic-muted: #A89F94;
+  --color-artistic-brand: #E8927C;
+  --color-artistic-border: #EBE3D5;
+  --color-artistic-line: #F0EBE3;
+  
+  /* Additional emotion colors */
+  --color-emotion-stress: #E8927C;
+  --color-emotion-anxiety: #7C98E8;
+  --color-emotion-sadness: #9E7CE8;
+  --color-emotion-lethargy: #6BB5B5;
+  --color-emotion-anger: #B05B5B;
+  --color-emotion-joy: #4A634A;
+}
+
+/* Custom classes for the letter paper and animations */
+.letter-paper {
+  background-color: #FFFFFF;
+  background-image: linear-gradient(#F0EBE3 1px, transparent 1px);
+  background-size: 100% 2.4rem;
+  line-height: 2.4rem;
+}
+
+/* Beautiful custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(232, 146, 124, 0.2);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(232, 146, 124, 0.4);
+}
+
