@@ -64,8 +64,28 @@ export default function App() {
       });
 
       if (!response.ok) {
-        const errData = await response.json();
-        throw new Error(errData.error || "정서 분석을 요청하는 중 오류가 발생했습니다.");
+        let errorMessage = "정서 분석을 요청하는 중 오류가 발생했습니다.";
+        try {
+          const contentType = response.headers.get("content-type");
+          if (contentType && contentType.includes("application/json")) {
+            const errData = await response.json();
+            errorMessage = errData.error || errorMessage;
+          } else {
+            const text = await response.text();
+            console.error("Non-JSON error response received:", text);
+            errorMessage = `서버 오류 (${response.status}): 서버가 준비 중이거나 주소가 올바르지 않습니다.`;
+          }
+        } catch (e) {
+          console.error("Error reading response error body:", e);
+        }
+        throw new Error(errorMessage);
+      }
+
+      const contentType = response.headers.get("content-type");
+      if (!contentType || !contentType.includes("application/json")) {
+        const text = await response.text();
+        console.error("Expected JSON success response, but received:", text);
+        throw new Error("서버에서 올바르지 않은 응답 형식이 반환되었습니다. 다시 시도해 주세요.");
       }
 
       const analysisResult: AnalysisResult = await response.json();
