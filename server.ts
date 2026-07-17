@@ -51,6 +51,11 @@ function scanEmergencyKeywords(text: string): boolean {
   return false;
 }
 
+// Health check endpoint
+app.get("/api/health", (req, res) => {
+  res.json({ status: "ok", time: new Date().toISOString() });
+});
+
 // Core Analysis API
 app.post("/api/analyze", async (req, res) => {
   try {
